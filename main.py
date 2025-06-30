@@ -53,7 +53,7 @@ from pandas_gbq import to_gbq
 
 def apps_fluer_migrate_data_to_bigquery():
     # === 🔐 Авторизація ===
-    SERVICE_ACCOUNT_FILE = "C:\\Users\\user\\Desktop\\Finance\\DRIVE_Scripts_Pandas\\ga_creds.json"
+    SERVICE_ACCOUNT_FILE = "/etc/secrets/gcp_creds.json"
     SCOPES = ["https://www.googleapis.com/auth/drive"]
 
     credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
@@ -73,7 +73,7 @@ def apps_fluer_migrate_data_to_bigquery():
         # "ios_sessions_all", "ios_sessions_cashback", "ios_sessions_fb"
     ]
 
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\user\Downloads\flowers\flowers\ga_creds.json"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"/etc/secrets/gcp_creds.json"
     logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
     # === 📅 Генерація тижнів місяця ===
