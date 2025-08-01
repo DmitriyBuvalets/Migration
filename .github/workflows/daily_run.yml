@@ -1,0 +1,29 @@
+name: Daily Exchange Rate Update
+
+on:
+  schedule:
+    - cron: '10 13 * * *'  # Запуск щодня о 16:10 за Києвом (13:00 UTC)
+  workflow_dispatch:      # Можна запускати вручну
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    env:
+      GA_CREDS_JSON: ${{ secrets.GA_CREDS_JSON }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run script
+        run: python main.py
