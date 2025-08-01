@@ -3,6 +3,9 @@ import pandas as pd
 from datetime import datetime
 from google.cloud import bigquery
 from google.oauth2 import service_account
+import os
+import json
+
 
 # 🔧 Заміни на свої параметри
 PROJECT_ID = "flowers-reporting"
