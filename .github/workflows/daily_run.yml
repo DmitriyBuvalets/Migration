@@ -1,33 +1,33 @@
-name: Daily Exchange Rate Update
+# name: Daily Exchange Rate Update
 
-on:
-  schedule:
-    - cron: '10 13 * * *'  # Запуск щодня о 16:10 за Києвом (13:00 UTC)
-  workflow_dispatch:      # Можна запускати вручну
+# on:
+#   schedule:
+#     - cron: '10 13 * * *'  # Запуск щодня о 16:10 за Києвом (13:00 UTC)
+#   workflow_dispatch:      # Можна запускати вручну
 
-jobs:
-  run-script:
-    runs-on: ubuntu-latest
-    env:
-       GA_CREDS: ${{ secrets.GA_CREDS }}
+# jobs:
+#   run-script:
+#     runs-on: ubuntu-latest
+#     env:
+#        GA_CREDS: ${{ secrets.GA_CREDS }}
 
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout repo
+#         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
+#       - name: Set up Python
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version: '3.11'
 
-      - name: Clear pip cache
-        run: pip cache purge
+#       - name: Clear pip cache
+#         run: pip cache purge
 
-      - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install -r requirements.txt
-          pip freeze | grep bigquery || echo "BigQuery не знайдено"
+#       - name: Install dependencies
+#         run: |
+#           pip install --upgrade pip
+#           pip install -r requirements.txt
+#           pip freeze | grep bigquery || echo "BigQuery не знайдено"
 
-      - name: Run script
-        run: python main.py
+#       - name: Run script
+#         run: python main.py
