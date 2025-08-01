@@ -8,8 +8,8 @@ import json
 
 
 # 🔧 Заміни на свої параметри
-PROJECT_ID = "flowers-reporting"
-DATASET_ID = "analytics_244903453"
+PROJECT_ID = "report"
+DATASET_ID = "analytics"
 TABLE_ID = "usd_uah_exchange_rates"
 FULL_TABLE_ID = f"{PROJECT_ID}.{DATASET_ID}.{TABLE_ID}"
 
