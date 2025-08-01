@@ -9,7 +9,7 @@ jobs:
   run-script:
     runs-on: ubuntu-latest
     env:
-      GA_CREDS_JSON: ${{ secrets.GA_CREDS_JSON }}
+       GA_CREDS: ${{ secrets.GA_CREDS }}
 
     steps:
       - name: Checkout repo
