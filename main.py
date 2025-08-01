@@ -12,7 +12,7 @@ FULL_TABLE_ID = f"{PROJECT_ID}.{DATASET_ID}.{TABLE_ID}"
 
 credentials = os.environ.get("GA_CREDS")
 
-# client = bigquery.Client(project='flowers-reporting', credentials=credentials)
+client = bigquery.Client(project='flowers-reporting', credentials=credentials)
 
 # /***************************************************************************************************************************************/
 
