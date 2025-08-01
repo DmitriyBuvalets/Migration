@@ -20,10 +20,14 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Clear pip cache
+        run: pip cache purge
+
       - name: Install dependencies
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
+          pip freeze | grep bigquery || echo "BigQuery не знайдено"
 
       - name: Run script
         run: python main.py
