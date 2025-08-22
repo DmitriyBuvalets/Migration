@@ -30,7 +30,7 @@ client = bigquery.Client(credentials=credentials, project=credentials.project_id
 
 
 
-# client = bigquery.Client(project='flowers-reporting', credentials=credentials)
+# client = bigquery.Client(project='report', credentials=credentials)
 # client = bigquery.Client(credentials=credentials, project=credentials.project_id)
 
 
@@ -72,7 +72,7 @@ def insert_to_bigquery(client, rows):
     client.load_table_from_dataframe(df, FULL_TABLE_ID).result()
 
 def main():
-    client = bigquery.Client(project='flowers-reporting', credentials=credentials)
+    client = bigquery.Client(project='report', credentials=credentials)
     rows = fetch_exchange_rates(["USD", "EUR"])
 
     to_insert = []
@@ -90,3 +90,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
